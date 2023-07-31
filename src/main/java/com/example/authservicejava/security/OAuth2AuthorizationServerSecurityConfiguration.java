@@ -18,11 +18,6 @@ import org.springframework.security.oauth2.server.authorization.config.annotatio
 import org.springframework.security.oauth2.server.authorization.settings.AuthorizationServerSettings;
 import org.springframework.security.web.SecurityFilterChain;
 
-/**
- * OAuth Authorization Server Configuration.
- *
- * @author Steve Riesenberg
- */
 @Configuration
 @EnableMethodSecurity
 @EnableWebSecurity
