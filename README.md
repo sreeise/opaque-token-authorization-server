@@ -8,15 +8,20 @@
 Get the bearer token using the authorization server.
 
 
-        curl -X POST messaging-client:secret@localhost:9000/oauth2/token -d "grant_type=client_credentials" -d "scope=message:read"
+    curl -X POST messaging-client:secret@localhost:9000/oauth2/token -d "grant_type=client_credentials" -d "scope=message:read"
+
+
+Use the introspection endpoint to decode the JWT and verify the token which is also typically done by resource-server.
+
+    curl -X POST messaging-client:secret@localhost:9000/oauth2/introspect -d "token=$TOKEN"
 
 
 Use the bearer token in the request to the messages endpoints in the resource server:
 
-        export TOKEN="token"
+    export TOKEN="token"
 
-        curl --location --request GET 'http://localhost:8080/message' \
-            --header 'Authorization: Bearer $TOKEN'
+    curl --location --request GET 'http://localhost:8080/message' \
+        --header 'Authorization: Bearer $TOKEN'
 
 
 Credit goes to [Spring Samples Repository](https://github.com/spring-projects/spring-security-samples/tree/main/servlet/spring-boot/java/oauth2/authorization-server) 
